@@ -1,0 +1,281 @@
+# Neurofeedback PCL-program for presentation software, Christian Paret 2017
+###############################################################################
+
+preset string Study_Code = "Studiencode";
+
+logfile.set_filename(Study_Code+"_EFP.log");
+
+###################################################
+######        Neurofeedback Settings         ######
+###################################################
+
+bool feedback = true;
+int first_pulse = 10;
+
+### neurofeedback calculation
+# with nf_standard=true, current value is normalized relative to rest value distribution using z-standardization
+# with nf_standard=false, current value raw scores are used as feedback
+bool nf_standard = true; 
+
+### settings for feedback presentation
+double max_signal_change = 9; # maximum range of signal change on feedback display. Select 9, if using nf_standard with max_therm_units=9; then unit size is z=1
+
+### settings for timing
+int block_duration = 30; # TRs
+int ft_duration = 3; # TRs
+int chart_feedback_duration = 5; # TRs
+int ft_trials = 5; # nr of finger tapping trials within finger tapping block
+int nr_blocks = 2;
+
+int training_duration = first_pulse+nr_blocks*(2*block_duration+ft_trials*ft_duration+chart_feedback_duration)+3;
+
+### TCP/IP settings
+socket insock = new socket;
+#string foreign_address = "192.168.19.42";
+string foreign_address = "10.0.11.167";
+int foreign_port = 8082;
+string value_separator = " ";
+
+###################################################
+######       SUBROUTINES AND VARIABLES       ######
+###################################################
+
+int current_value_count = 1;
+double current_value;
+int bar_index;
+string ds;
+double t0;
+double t1;
+array <double> delta_tcpipinput [1];
+double delta_tcpipinput_int;
+double delta_presentation_int;
+
+### needed for chart
+double z;
+double last_z;
+double rest_mean;
+double rest_std;
+double nf_mean_raw;
+double nf_mean;
+double x_coord;
+###
+
+sub 
+	double get_value
+begin
+	t0 = clock.time();
+	delta_presentation_int = t0-t1;
+	ds = insock.receive_delimited(value_separator);
+	t1 = clock.time();
+	delta_tcpipinput_int = t1-t0;
+	delta_tcpipinput.add(delta_tcpipinput_int);
+	term.print("received value " + ds + " at pulse " + string(pulse_manager.main_pulse_count()) + "; value count " + string(current_value_count) + "; delta presentation = " + string(delta_presentation_int) + ", delta tcpip input = " + string(delta_tcpipinput_int) +"\n");
+	current_value_count = current_value_count + 1;
+	current_value = double(ds);
+	return current_value;
+end;
+
+sub # subroutine used only when nf_standard=false
+	double feedback(double c)
+begin
+	double unit;
+	double therm_units;
+	unit = max_signal_change/9; # Thermometer with 9 levels
+	
+	c=round(c)/unit; # value is rounded to nearest integer
+	
+	# Thermometer has 9 levels, a current_value=0 corresponds to the fifth level of the thermometer
+	if c <= -5 then
+		therm_units = 1;
+	elseif c >= 5 then
+		therm_units = 9; 
+	else
+		therm_units=c+5;
+	end;	
+
+	term.print("feedback: " + string(therm_units) + "\n");
+	
+	bar_index = int(therm_units);
+	
+	return bar_index;
+end;
+
+sub int rating (bitmap dimension_bm)  begin
+	int exit_response = 0;
+	int value = 0;
+	scale_default.set_part(1,dimension_bm);
+	loop  until exit_response>0 begin
+		bitmap flip_pic=scale[value+1];
+		scale_default.set_part(2,flip_pic);
+		rating_trial.present();
+		if response_manager.last_response() == 1 && value>0 then 
+			value=value-1;
+		elseif response_manager.last_response() == 3 && value<9 then 
+			value=value+1;
+		elseif response_manager.last_response() == 2 then
+			exit_response=1;
+		end;
+	end;
+	return value;
+end;
+
+array <int> rand_fingers [4] = { 1 , 2 , 3 , 4 };
+
+###################################################
+######             OPEN SOCKET               ######
+###################################################
+
+if feedback==true then
+	bool so = insock.open(foreign_address, foreign_port, 3000);
+	insock.set_receive_time_out(60000000); # Don't time-out
+	# exit immediately with reason if this fails
+	if !so
+	then
+		term.print("failed to open socket at: ");
+		term.print(foreign_address);
+		term.print(":");
+		term.print(foreign_port);
+		term.print("\n");
+		exit();
+	end;
+end;
+
+###################################################
+######              EXPERIMENT               ######
+###################################################
+
+current_value_count = 1;
+
+instruction_trial.present();
+
+term.print("Waiting for Pulse ...");
+loop until (pulse_manager.main_pulse_count() == 1) begin 
+end;
+term.print(" Pulse ok\n");
+
+loop int m = 1 until m > first_pulse begin
+	get_value();
+	m=m+1;
+end;
+
+loop int i = 1 until i > nr_blocks begin
+	
+	### rest
+	term.print("rest\n");
+	array <double> rest_values [0];	
+	rest_trial.present();
+	loop int m = 1 until m > block_duration begin
+		get_value();
+		rest_values.add(current_value);
+		m = m + 1;
+	end;	
+	###
+	
+	#### needed for chart
+	x_coord = -15;
+	if nf_standard then
+		rest_mean = arithmetic_mean(rest_values); # get baseline for nf-chart
+		rest_std = population_std_dev(rest_values); # get std for standardization of scale
+		last_z = (rest_values[rest_values.count()]-rest_mean)/rest_std; 
+	else
+		last_z = current_value;
+	end;
+	title.set_caption("Neurofeedback Block Nr. "+string(i)); 
+	title.redraw();
+	###
+	
+	### nf
+	term.print("neurofeedback block nr. "+string(i)+"\n");
+	array <double> nf_values [0];				
+	loop int m = 1 until m > block_duration begin		
+		if nf_standard then
+			z = (current_value-rest_mean)/rest_std; # current value is standardized relative to rest values distribution
+		else
+			z = current_value; 	
+		end;
+		feedback(z);
+		feedback_pic.set_part(1,bars[bar_index]);	
+		feedback_trial.present();
+		logfile.add_event_entry("bars"+string(bar_index));		
+		get_value();	
+		
+		### needed for chart
+		nf_values.add(z);		
+		line1.add_line( x_coord, last_z, x_coord+1, z );
+		line1.redraw();
+		last_z = z;
+		x_coord=x_coord+1;
+		###
+
+		m = m + 1;									
+	end;	
+	
+	### chart feedback
+	term.print("chart feedback\n");
+	nf_mean_raw = arithmetic_mean(nf_values);
+	nf_mean = round((nf_mean_raw-rest_mean)/rest_std,2);
+	mean_line.add_line(-15,nf_mean,15.5,nf_mean);
+	mean_line.redraw();
+	mean_score.set_caption("Score:\n"+string(nf_mean));
+	mean_score.set_font_color(255,255,255);
+	mean_score.redraw();
+	chart_pic.set_part_y(1,nf_mean);
+	graph_main.present();
+	loop int m = 1 until m > chart_feedback_duration begin
+		get_value();
+		m = m + 1;
+	end;	
+	line1.clear();
+	mean_line.clear();
+	###
+		
+	### finger tapping
+	term.print("finger tapping\n");
+	loop int m = 1 until m > ft_trials begin
+		rand_fingers.shuffle();
+		loop int n = 1 until n > 4 begin
+			ft_picture.set_part(n,fingers[rand_fingers[n]]); # assign fingers to positions in tapping sequence
+			n = n + 1;
+		end;			
+		ft_trial.present();	
+		loop int n = 1 until n > ft_duration begin
+			get_value();
+			n = n + 1;
+		end;
+		m = m + 1;
+	end;
+	###
+	
+	i = i + 1;
+	
+end;
+	
+rest_trial.present();
+term.print("display rest\n");
+end_trial.set_mri_pulse(training_duration);
+end_trial.present();
+	
+double delta_tcpipinput_mean = arithmetic_mean(delta_tcpipinput);
+logfile.add_event_entry("mean_delta_t "+ string(delta_tcpipinput_mean));
+
+###################################################
+######               RATING                  ######
+###################################################
+
+int reg_success = rating(reg_erfolg_bm);
+
+output_file outfile_sub_reg = new output_file;
+outfile_sub_reg.open_append(Study_Code+"_SuccessRating.txt"); 
+outfile_sub_reg.print(string(reg_success)+"\n");
+
+scale_default.set_part(2,range_dss_pic);
+
+int dissoziiert_1 = rating(dissoziation_depersonalisation_bm);
+int dissoziiert_2 = rating(dissoziation_derealisation_bm);
+int dissoziiert_3 = rating(dissoziation_hoeren_bm);
+int dissoziiert_4 = rating(dissoziation_analgesie_bm);
+int spannung = rating(entspannt_bm);
+
+output_file outfile_sub_disso = new output_file;
+outfile_sub_disso.open_append(Study_Code+"_DissoRating.txt"); 
+outfile_sub_disso.print(string(dissoziiert_1)+"\t"+string(dissoziiert_2)+"\t"+string(dissoziiert_3)+"\t"+string(dissoziiert_4)+"\t"+string(spannung)+"\n");

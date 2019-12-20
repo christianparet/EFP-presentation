@@ -1,0 +1,77 @@
+Scenario - 
+Logfile written - 01/31/2018 10:33:41
+
+Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+0	Pulse	23	0	0	NA
+1	Picture	prepare	166	0	1	108296	2	0	next	other	0
+1	Pulse	23	20000	19834	NA
+1	Pulse	23	40000	39834	NA
+1	Pulse	23	60000	59834	NA
+1	Pulse	23	80000	79834	NA
+1	Pulse	23	100000	99834	NA
+2	Picture	onset_rest_trial	108462	0	1	110795	2	0	next	other	0
+2	Pulse	23	120000	11538	NA
+2	Pulse	23	140000	31538	NA
+2	Pulse	23	160000	51538	NA
+2	Pulse	23	180000	71538	NA
+2	Pulse	23	200000	91538	NA
+3	Manual	bars5	219257	0
+3	Pulse	23	220000	743	NA
+4	Manual	bars4	222922	0
+5	Manual	bars5	226587	0
+6	Manual	bars5	230253	0
+7	Manual	bars6	234085	0
+8	Manual	bars3	237917	0
+8	Pulse	23	240000	2083	NA
+9	Manual	bars4	241582	0
+10	Manual	bars4	245414	0
+11	Manual	bars3	249413	0
+12	Manual	bars4	253078	0
+13	Manual	bars5	256910	0
+13	Pulse	23	260000	3090	NA
+14	Manual	bars4	260576	0
+15	Manual	bars4	264408	0
+16	Manual	bars3	268073	0
+17	Manual	bars3	271905	0
+18	Manual	bars3	275570	0
+19	Manual	bars5	279402	0
+19	Pulse	23	280000	598	NA
+20	Manual	bars3	283068	0
+21	Manual	bars5	286900	0
+22	Manual	bars4	290565	0
+23	Manual	bars5	294397	0
+24	Manual	bars4	298229	0
+24	Pulse	23	300000	1771	NA
+25	Manual	bars3	302061	0
+26	Manual	bars4	305893	0
+27	Manual	bars4	309725	0
+28	Manual	bars4	313391	0
+29	Manual	bars4	316889	0
+29	Pulse	23	320000	3111	NA
+30	Manual	bars5	320721	0
+31	Manual	bars4	324553	0
+32	Manual	bars4	328219	0
+33	Pulse	23	340000	7949	NA
+34	Picture	ft_inst	350878	0	1	11495	3	0	next	other	0
+34	Pulse	23	360000	9122	NA
+35	Picture	onset_ft_trial	362373	0	2	7498	3	0	next	other	0
+36	Picture	onset_ft_trial	369871	0	1	7497	2	0	next	other	0
+37	Picture	onset_ft_trial	377368	0	1	7664	2	0	next	other	0
+37	Pulse	23	380000	2632	NA
+38	Picture	onset_ft_trial	385032	0	1	7331	2	0	next	other	0
+39	Picture	onset_ft_trial	392363	0	1	7498	2	0	next	other	0
+40	Picture	onset_ft_trial	399861	0	1	7497	2	0	next	other	0
+40	Pulse	23	400000	139	NA
+41	Picture	onset_rest_trial	407358	0	1	211961	2	0	next	other	0
+41	Pulse	23	420000	12642	NA
+41	Pulse	23	440000	32642	NA
+41	Pulse	23	460000	52642	NA
+41	Pulse	23	480000	72642	NA
+41	Pulse	23	500000	92642	NA
+41	Pulse	23	520000	112642	NA
+41	Pulse	23	540000	132642	NA
+41	Pulse	23	560000	152642	NA
+41	Pulse	23	580000	172642	NA
+41	Pulse	23	600000	192642	NA
+41	Quit		619262	211904

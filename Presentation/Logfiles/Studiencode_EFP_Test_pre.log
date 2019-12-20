@@ -1,0 +1,185 @@
+Scenario - 
+Logfile written - 04/25/2018 08:48:16
+
+Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+0	Pulse	23	0	0	NA
+1	Picture	prepare	167	0	1	50208	1	0	next	other	0
+1	Pulse	23	20000	19833	NA
+1	Pulse	23	40000	39833	NA
+2	Picture	onset_rest_trial	50375	0	1	150124	1	0	next	other	0
+2	Pulse	23	60000	9625	NA
+2	Pulse	23	80000	29625	NA
+2	Pulse	23	100000	49625	NA
+2	Pulse	23	120000	69625	NA
+2	Pulse	23	140000	89625	NA
+2	Pulse	23	160000	109625	NA
+2	Pulse	23	180000	129625	NA
+2	Pulse	23	200000	149625	NA
+3	Manual	bars4	200500	0	NA
+4	Manual	bars6	205671	0	NA
+5	Manual	bars6	210842	0	NA
+6	Manual	bars6	216013	0	NA
+6	Pulse	23	220000	3988	NA
+7	Manual	bars4	221183	0	NA
+8	Manual	bars5	226354	0	NA
+9	Manual	bars4	231525	0	NA
+10	Manual	bars5	236696	0	NA
+10	Pulse	23	240000	3304	NA
+11	Manual	bars4	241867	0	NA
+12	Manual	bars4	247038	0	NA
+13	Manual	bars4	252209	0	NA
+14	Manual	bars5	257380	0	NA
+14	Pulse	23	260000	2620	NA
+15	Manual	bars4	262551	0	NA
+16	Manual	bars5	267722	0	NA
+17	Manual	bars6	272893	0	NA
+18	Manual	bars6	278064	0	NA
+18	Pulse	23	280000	1936	NA
+19	Manual	bars5	283235	0	NA
+20	Manual	bars5	288406	0	NA
+21	Manual	bars6	293577	0	NA
+22	Manual	bars5	298748	0	NA
+22	Pulse	23	300000	1253	NA
+23	Manual	bars6	303919	0	NA
+24	Manual	bars4	309090	0	NA
+25	Manual	bars6	314261	0	NA
+26	Manual	bars6	319432	0	NA
+26	Pulse	23	320000	569	NA
+27	Manual	bars4	324603	0	NA
+28	Manual	bars6	329773	0	NA
+29	Manual	bars6	334944	0	NA
+29	Pulse	23	340000	5056	NA
+30	Manual	bars4	340115	0	NA
+31	Manual	bars4	345286	0	NA
+32	Manual	bars4	350457	0	NA
+33	Manual	EOB_bars5	355628	0	NA
+33	Manual	EOB_mean-0.02	355628	0	NA
+33	Pulse	23	360000	4372	NA
+33	Pulse	23	380000	24372	NA
+34	Picture	ft_inst	380815	0	1	15179	1	0	next	other	0
+35	Picture	onset_ft_trial	395995	0	1	10175	1	0	next	other	0
+35	Pulse	23	400000	4005	NA
+36	Picture	onset_ft_trial	406170	0	1	10175	1	0	next	other	0
+37	Picture	onset_ft_trial	416345	0	1	10175	1	0	next	other	0
+37	Pulse	23	420000	3655	NA
+38	Picture	onset_ft_trial	426520	0	1	10175	1	0	next	other	0
+39	Picture	onset_ft_trial	436695	0	1	10175	1	0	next	other	0
+39	Pulse	23	440000	3305	NA
+40	Picture	onset_ft_trial	446870	0	1	10175	1	0	next	other	0
+41	Picture	onset_rest_trial	457045	0	1	150124	1	0	next	other	0
+41	Pulse	23	460000	2955	NA
+41	Pulse	23	480000	22955	NA
+41	Pulse	23	500000	42955	NA
+41	Pulse	23	520000	62955	NA
+41	Pulse	23	540000	82955	NA
+41	Pulse	23	560000	102955	NA
+41	Pulse	23	580000	122955	NA
+41	Pulse	23	600000	142955	NA
+42	Manual	bars4	607170	0	NA
+43	Manual	bars6	612341	0	NA
+44	Manual	bars6	617512	0	NA
+44	Pulse	23	620000	2488	NA
+45	Manual	bars6	622683	0	NA
+46	Manual	bars4	627854	0	NA
+47	Manual	bars5	633025	0	NA
+48	Manual	bars4	638196	0	NA
+48	Pulse	23	640000	1805	NA
+49	Manual	bars5	643367	0	NA
+50	Manual	bars4	648538	0	NA
+51	Manual	bars4	653709	0	NA
+52	Manual	bars4	658880	0	NA
+52	Pulse	23	660000	1121	NA
+53	Manual	bars5	664050	0	NA
+54	Manual	bars4	669221	0	NA
+55	Manual	bars5	674392	0	NA
+56	Manual	bars6	679563	0	NA
+56	Pulse	23	680000	437	NA
+57	Manual	bars6	684734	0	NA
+58	Manual	bars5	689905	0	NA
+59	Manual	bars5	695076	0	NA
+59	Pulse	23	700000	4924	NA
+60	Manual	bars6	700247	0	NA
+61	Manual	bars5	705418	0	NA
+62	Manual	bars6	710589	0	NA
+63	Manual	bars4	715760	0	NA
+63	Pulse	23	720000	4240	NA
+64	Manual	bars6	720931	0	NA
+65	Manual	bars6	726102	0	NA
+66	Manual	bars4	731273	0	NA
+67	Manual	bars6	736444	0	NA
+67	Pulse	23	740000	3557	NA
+68	Manual	bars6	741615	0	NA
+69	Manual	bars4	746786	0	NA
+70	Manual	bars4	751957	0	NA
+71	Manual	bars4	757128	0	NA
+71	Pulse	23	760000	2873	NA
+72	Manual	EOB_bars5	762299	0	NA
+72	Manual	EOB_mean-0.02	762299	1	NA
+72	Pulse	23	780000	17702	NA
+73	Picture	ft_inst	787486	0	1	15179	1	0	next	other	0
+73	Pulse	23	800000	12514	NA
+74	Picture	onset_ft_trial	802665	0	1	10175	1	0	next	other	0
+75	Picture	onset_ft_trial	812840	0	1	10175	1	0	next	other	0
+75	Pulse	23	820000	7160	NA
+76	Picture	onset_ft_trial	823015	0	1	10175	1	0	next	other	0
+77	Picture	onset_ft_trial	833190	0	1	10175	1	0	next	other	0
+77	Pulse	23	840000	6810	NA
+78	Picture	onset_ft_trial	843365	0	1	10175	1	0	next	other	0
+79	Picture	onset_ft_trial	853540	0	1	10175	1	0	next	other	0
+79	Pulse	23	860000	6460	NA
+80	Picture	onset_rest_trial	863716	0	1	167	1	0	next	other	0
+81	Picture	end_now	863882	0	1	20183	1	0	20000	other	0
+81	Pulse	23	880000	16118	NA
+81	Manual	mean_delta_t 0	884066	20184	NA
+82	Picture	rating	884233	0	1	30859	1	0	resp	other	0
+82	Pulse	23	900000	15767	NA
+82	Response	2	914883	30650	0
+83	Picture	rating	915091	0	1	15346	1	0	resp	other	0
+83	Pulse	23	920000	4909	NA
+83	Response	1	930242	15151	0
+84	Picture	rating	930438	0	1	3336	1	0	resp	other	0
+84	Response	1	933602	3165	0
+85	Picture	rating	933774	0	1	13678	1	0	resp	other	0
+85	Pulse	23	940000	6226	NA
+85	Response	3	947362	13589	0
+86	Picture	rating	947452	0	1	3003	1	0	resp	other	0
+86	Response	3	950322	2871	0
+87	Picture	rating	950454	0	1	2168	1	0	resp	other	0
+87	Response	3	952482	2028	0
+88	Picture	rating	952623	0	1	1501	1	0	resp	other	0
+88	Response	3	954002	1380	0
+89	Picture	rating	954124	0	1	12677	1	0	resp	other	0
+89	Pulse	23	960000	5876	NA
+89	Response	2	966642	12518	0
+90	Picture	rating	966801	0	1	10008	1	0	resp	other	0
+90	Response	3	976722	9921	0
+91	Picture	rating	976809	0	1	2168	1	0	resp	other	0
+91	Response	3	978802	1993	0
+92	Picture	rating	978978	0	1	2335	1	0	resp	other	0
+92	Pulse	23	980000	1022	NA
+92	Response	3	981122	2144	0
+93	Picture	rating	981313	0	1	2335	1	0	resp	other	0
+93	Response	3	983442	2129	0
+94	Picture	rating	983648	0	1	2168	1	0	resp	other	0
+94	Response	3	985602	1954	0
+95	Picture	rating	985817	0	1	21184	1	0	resp	other	0
+95	Pulse	23	1000000	14183	NA
+95	Response	2	1006882	21066	0
+96	Picture	rating	1007001	0	1	6839	1	0	resp	other	0
+96	Response	3	1013682	6681	0
+97	Picture	rating	1013840	0	1	1668	1	0	resp	other	0
+97	Response	3	1015442	1602	0
+98	Picture	rating	1015508	0	1	1835	1	0	resp	other	0
+98	Response	3	1017122	1614	0
+99	Picture	rating	1017343	0	1	3336	1	0	resp	other	0
+99	Pulse	23	1020000	2657	NA
+99	Response	2	1020482	3139	0
+100	Picture	rating	1020679	0	1	6839	1	0	resp	other	0
+100	Response	2	1027362	6683	0
+101	Picture	rating	1027518	0	1	97091	1	0	resp	other	0
+101	Pulse	23	1040000	12482	NA
+101	Pulse	23	1060000	32482	NA
+101	Pulse	23	1080000	52482	NA
+101	Pulse	23	1100000	72482	NA
+101	Response	2	1117842	90324	0

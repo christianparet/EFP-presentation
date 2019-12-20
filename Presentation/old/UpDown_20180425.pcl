@@ -1,0 +1,453 @@
+# Neurofeedback PCL-program for presentation software, Christian Paret 2018
+###############################################################################
+# Experiment info: Alternating blocks of up- and down-regulation
+# Run = 8 Blocks (3*up and 3*down) ~ 22 min
+#
+# Before use in experiment:
+# 1. Switch do_feedback = true;
+# 2. Set foreign_address to IP of receiving computer
+# 3. Go to sce, set write_codes=true and scenario_type=fMRI
+###############################################################################
+###############################################################################
+# This script combines continuous neurofeedback and delayed neurofeedback.
+# 	A) Continuous feedback
+# 		- Continuous feedback is either based on z-standardized values or on signal change ("raw-values" as they are returned by real-time processing).
+# 		- Turn nf_standard=true to give feedback based on z-standardized values. Alternatively, turn nf_standard=false.
+#		- Feedback display: use thermometer or chart with line graph (latter is not yet implemented).
+#	B) Delayed feedback
+#		- Delayed feedback is based on z-standardized values.
+#		- Delayed feedback is presented after neurofeedback block
+#
+# Information on z-standardization:
+# The mean and standard deviation are calculated based on all values ("raw-values" as they are returned by real-time processing) of the rest-block that preceded the current neurofeedback block.
+###############################################################################
+
+preset string Study_Code = "Studiencode";
+preset int condition = 1; # 1=up, 2=down
+
+logfile.set_filename(Study_Code+"_UpDown.log");
+
+###################################################
+######        Neurofeedback Settings         ######
+###################################################
+
+int first_pulse = 10;
+
+### settings for continuous neurofeedback
+# with nf_standard=true, current_value is normalized relative to rest value distribution before feedback, using z-standardization
+# with nf_standard=false, current_value raw scores are used as feedback
+bool nf_standard = true; # if nf_standard=true and thermometer=true: consider setting max_signal_change=9 to set thermometer unit to z-standard units
+# set thermometer=true to show thermometer feedback. Set false to show line graph feedback
+bool thermometer = true;
+# set max_signal_change if thermometer=true, otherwise the parameter is ignored
+double max_signal_change = 9; # maximum range of signal change on feedback display. Select 9, if using nf_standard; then unit size is z=1
+
+### settings for timing
+int rest_duration = 30; # TRs; baseline block
+int regulate_duration = 30; # TRs; continuous neurofeedback block
+int ft_inst_duration = 3; # TRs; Present hand picture with numbers
+int ft_duration = 2; # TRs;  Keynan et al.: one 3-digit FT-sequence per TR (=3s), 10 sequences per block; we use 3-digit (see ft_digit_span) FT-sequence per 2 TRs (=4s), 6 sequences per block
+int ft_trials = 6; # nr of finger tapping trials within finger tapping block
+int ft_block_duration = (ft_duration*ft_trials)+ft_inst_duration; # duration of FT-block
+int ft_digit_span = 3; # length of ft sequence
+int delayed_feedback_duration = 5; # TRs
+int nr_blocks = 8;
+int wait_end = 5;
+
+int training_duration = first_pulse+nr_blocks*(rest_duration+regulate_duration+delayed_feedback_duration+ft_block_duration)+wait_end;
+term.print("Experiment will end with pulse "+string(training_duration)+"\n"); # UpDown duration: 655 TR
+
+bool do_feedback = false; # for experiments turn "true"; for simulation turn "false". If "false", random numbers are generated and used for feedback
+int fake_count = 1;
+int fake_wait = 500;
+array <int> sim_temp[5];
+array <int> sim[5];
+if do_feedback==false then 
+	term.print("\nWARNING: SIMULATION !\n\n");
+	# create array for fake-feedback
+	sim_temp.fill(1,5,1,1);
+	sim.fill(1,5,1,1);
+	loop int i = 1 until i > round(regulate_duration/5,0) begin
+		sim.append(sim_temp);
+		i=i+1;
+	end;
+	sim.shuffle();
+end;
+
+### TCP/IP settings
+socket insock = new socket;
+string foreign_address = "192.168.19.40"; # BrainVoyager Laptop at Heinz
+#string foreign_address = "10.0.12.158";
+int foreign_port = 8082;
+string value_separator = " ";
+
+###################################################
+######             STIMULUS CODES            ######
+###################################################
+
+array <int> cond_code [2] = {10,20}; # up=10, down=20; is logged at block start
+int current_cond_code;
+
+# Event codes are added to condition code
+int fb_no_code = 1; # no temperature change
+int fb_up_code = 2; # temperature increase
+int fb_down_code = 3; # temperature drop
+int EOB_fb_code = 4; # end of block feedback
+
+# Other codes defined in SCE
+# Finger Tapping instruction: 5
+# Finger Tapping sequence: 6
+# Rest: 7
+
+###################################################
+######       SUBROUTINES AND VARIABLES       ######
+###################################################
+
+int current_value_count = 1;
+double current_value;
+int bar_index;
+string ds;
+double t0;
+double t1;
+array <double> delta_tcpipinput [1];
+double delta_tcpipinput_int;
+double delta_presentation_int;
+array <int> fingers_temp [ft_digit_span];
+bool ft_sequence_ok = false;
+int last_bar_index;
+
+### needed for chart
+double z;
+double last_z;
+double rest_mean;
+double rest_std;
+double nf_mean_raw;
+double nf_mean;
+double x_coord;
+###
+
+sub 
+	double get_value
+begin
+	t0 = clock.time();
+	delta_presentation_int = t0-t1;
+	ds = insock.receive_delimited(value_separator);
+	t1 = clock.time();
+	delta_tcpipinput_int = t1-t0;
+	delta_tcpipinput.add(delta_tcpipinput_int);
+	term.print("received value " + ds + " at pulse " + string(pulse_manager.main_pulse_count()) + "; value count " + string(current_value_count) + "; delta presentation = " + string(delta_presentation_int) + ", delta tcpip input = " + string(delta_tcpipinput_int) +"\n");
+	current_value_count = current_value_count + 1;
+	current_value = double(ds);
+	return current_value;
+end;
+
+sub
+	double feedback(double c)
+begin
+	double feedback_unit;
+	double therm_units;
+	feedback_unit = max_signal_change/9; # Thermometer with 9 levels	
+	c=round(c/feedback_unit,0); # value is divided by number of thermometer-units (1 thermometer-unit = X signal-change-units [where X=feedback_unit])	and rounded to nearest integer
+	# thermometer has 9 levels, a current_value=0 corresponds to the fifth level of the thermometer
+	if c <= -5 then
+		therm_units = 1;
+	elseif c >= 5 then
+		therm_units = 9; 
+	else
+		therm_units=c+5;
+	end;	
+	term.print("feedback: " + string(therm_units) + "\n");	
+	bar_index = int(therm_units);	
+	return bar_index;
+end;
+
+sub int rating (bitmap dimension_bm)  begin
+	int exit_response = 0;
+	int value = 0;
+	scale_default.set_part(1,dimension_bm);
+	loop  until exit_response>0 begin
+		bitmap flip_pic=scale[value+1];
+		scale_default.set_part(2,flip_pic);
+		rating_trial.present();
+		if response_manager.last_response() == 1 && value>0 then 
+			value=value-1;
+		elseif response_manager.last_response() == 3 && value<9 then 
+			value=value+1;
+		elseif response_manager.last_response() == 2 then
+			exit_response=1;
+		end;
+	end;
+	return value;
+end;
+
+array <int> rand_fingers [4] = { 1 , 2 , 3 , 4 };
+
+###################################################
+######             OPEN SOCKET               ######
+###################################################
+
+if do_feedback then
+	bool so = insock.open(foreign_address, foreign_port, 3000);
+	insock.set_receive_time_out(60000000); # Don't time-out
+	# exit immediately with reason if this fails
+	if !so
+	then
+		term.print("failed to open socket at: ");
+		term.print(foreign_address);
+		term.print(":");
+		term.print(foreign_port);
+		term.print("\n");
+		exit();
+	end;
+end;
+
+###################################################
+######              EXPERIMENT               ######
+###################################################
+
+current_value_count = 1;
+
+instruction_trial.present();
+
+term.print("Waiting for Pulse ...");
+loop until (pulse_manager.main_pulse_count() == 1) begin 
+	if pulse_manager.main_pulse_count() == 1 then
+		term.print(" Pulse ok\n");
+	end;
+end;
+
+loop int m = 1 until m > first_pulse begin
+	if do_feedback then
+		get_value();
+	else
+		wait_interval(fake_wait);
+	end;
+	m=m+1;
+end;
+
+loop int i = 1 until i > nr_blocks begin
+	
+	### rest
+	term.print("rest\n");
+	array <double> rest_values [0];	
+	rest_trial.present();
+	loop int m = 1 until m > rest_duration begin
+		if do_feedback then
+			get_value();
+		else
+			current_value=sim[m];
+			wait_interval(fake_wait);
+		end;
+		rest_values.add(current_value);
+		m = m + 1;
+	end;	
+	###
+	
+	title.set_caption("Neurofeedback Block Nr. "+string(i)); 
+	title.redraw();
+	
+	current_cond_code = cond_code[condition];
+	feedback_pic.set_part(5,arrows[condition]);
+	
+	### needed for chart feedback
+	rest_mean = arithmetic_mean(rest_values); # get baseline for nf-chart
+	rest_std = population_std_dev(rest_values); # get std for standardization of scale
+	if nf_standard then		
+		last_z = (rest_values[rest_values.count()]-rest_mean)/rest_std; 
+	else
+		last_z = current_value;
+	end;
+	###
+	
+	### nf
+	term.print("neurofeedback block nr. "+string(i)+"\n");
+	x_coord = -15;
+	array <double> nf_values [0];				
+	loop int m = 1 until m > regulate_duration begin		
+		if nf_standard then
+			z = (current_value-rest_mean)/rest_std; # current_value (= signal change) is standardized relative to rest values distribution, corresponding z-value is used for feedback
+		else
+			z = current_value; # current_value (= signal change) is used for feedback
+		end;		
+			
+		nf_values.add(z); # collects z-values for end-of-block feedback
+		### needed for chart feedback
+		line1.add_line( x_coord, last_z, x_coord+1, z );
+		line1.redraw();
+		###		
+		
+		if thermometer then
+			feedback(z);
+			if m == 1 then
+				feedback_event.set_port_code(current_cond_code);
+			elseif bar_index==last_bar_index && m>1 then
+				feedback_event.set_port_code(current_cond_code+fb_no_code);
+			elseif bar_index<last_bar_index && m>1 then
+				feedback_event.set_port_code(current_cond_code+fb_down_code);
+			elseif bar_index>last_bar_index && m>1 then
+				feedback_event.set_port_code(current_cond_code+fb_up_code);
+			end;
+			feedback_pic.set_part(3,bars[bar_index]);	
+			feedback_trial.present();
+			logfile.add_event_entry("bars"+string(bar_index));	
+		else # chart
+			if m == 1 then
+				graph_event.set_port_code(current_cond_code);
+			elseif z==last_z && m>1 then
+				graph_event.set_port_code(current_cond_code+fb_no_code);
+			elseif z<last_z && m>1 then
+				graph_event.set_port_code(current_cond_code+fb_down_code);
+			elseif z>last_z && m>1 then
+				graph_event.set_port_code(current_cond_code+fb_up_code);
+			end;
+			graph_trial.present();
+		end;	
+		
+		last_bar_index = bar_index;
+		last_z = z;
+		m = m + 1;		
+		x_coord = x_coord + 1;
+		if do_feedback then
+			get_value();
+		else
+			current_value=sim[m];
+			wait_interval(fake_wait);
+		end;
+							
+	end;	
+	
+	### end-of-block feedback
+	title.set_caption("Ergebnis Block Nr. "+string(i)); 
+	title.redraw();
+	term.print("delayed feedback\n");
+	nf_mean = round(arithmetic_mean(nf_values),2);
+	mean_score.set_caption("Score:\n"+string(nf_mean));
+	mean_score.set_font_color(255,255,255);
+		
+	if thermometer then
+		mean_line.add_line(-5,nf_mean,5,nf_mean);
+		mean_line.redraw();
+		feedback_pic.set_part_y(1,nf_mean);
+		mean_score.redraw();
+		feedback(nf_mean);
+		feedback_pic.set_part(3,bars[bar_index]);	
+		feedback_event.set_port_code(current_cond_code+EOB_fb_code);
+		feedback_trial.present();
+		logfile.add_event_entry("EOB_bars"+string(bar_index));	
+		logfile.add_event_entry("EOB_mean"+string(nf_mean));
+		loop int m = 1 until m > delayed_feedback_duration begin
+			if do_feedback then
+				get_value();
+			else
+				current_value=sim[m];
+				wait_interval(fake_wait);
+			end;
+			m = m + 1;
+		end;	
+	else # chart	
+		mean_line.add_line(-15,nf_mean,15.5,nf_mean);
+		mean_line.redraw();	
+		chart_pic.set_part_y(1,nf_mean);
+		mean_score.redraw();
+		graph_event.set_port_code(current_cond_code+EOB_fb_code);
+		graph_trial.present();
+		logfile.add_event_entry("EOB_mean"+string(nf_mean));
+		loop int m = 1 until m > delayed_feedback_duration begin
+			if do_feedback then
+				get_value();
+			else
+				current_value=sim[m];
+				wait_interval(fake_wait);
+			end;
+			m = m + 1;
+		end;	
+		line1.clear();
+	end;
+	
+	# make end-of-block results invisible for next continuous feedback trial
+	mean_line.clear();
+	mean_score.set_font_color(75,75,75);
+	mean_line.redraw();
+	mean_score.redraw();
+		
+	### finger tapping
+	term.print("finger tapping\n");
+	ft_inst_trial.present();
+	loop int m = 1 until m > ft_inst_duration begin
+		if do_feedback then
+			get_value();
+		else
+			current_value=sim[m];
+			wait_interval(fake_wait);
+		end;
+		m = m + 1;
+	end;	
+	loop int m = 1 until m > ft_trials begin	
+		ft_sequence_ok = false;
+		loop int n = 1 until ft_sequence_ok begin # make sure that sequence differs from previous one
+			rand_fingers.shuffle();
+			if rand_fingers[1] == fingers_temp[1] && rand_fingers[2] == fingers_temp[2] then
+				ft_sequence_ok = false;
+			else ft_sequence_ok = true;
+			end;
+		end;
+		fingers_temp = rand_fingers;
+		loop int n = 1 until n > ft_digit_span begin
+			ft_picture.set_part(n,fingers[fingers_temp[n]]); # assign fingers to positions in tapping sequence
+			n = n + 1;
+		end;			
+		ft_trial.present();	
+		loop int n = 1 until n > ft_duration begin
+			if do_feedback then
+				get_value();
+			else
+				current_value=sim[m];
+				wait_interval(fake_wait);
+			end;
+			n = n + 1;
+		end;
+		m = m + 1;
+	end;
+	###
+	
+	i = i + 1;
+	
+	if condition==1 then
+		condition = 2;
+	elseif condition==2 then
+		condition = 1;
+	end;
+	
+end;
+	
+rest_trial.present();
+term.print("display rest\n");
+if do_feedback then
+	end_trial.set_mri_pulse(training_duration);
+end;
+end_trial.present();
+	
+double delta_tcpipinput_mean = arithmetic_mean(delta_tcpipinput);
+logfile.add_event_entry("mean_delta_t "+ string(delta_tcpipinput_mean));
+
+###################################################
+######               RATING                  ######
+###################################################
+
+int reg_success = rating(reg_erfolg_bm);
+
+output_file outfile_sub_reg = new output_file;
+outfile_sub_reg.open_append(Study_Code+"_SuccessRating.txt"); 
+outfile_sub_reg.print(string(reg_success)+"\n");
+
+scale_default.set_part(2,range_dss_pic);
+
+int dissoziiert_1 = rating(dissoziation_depersonalisation_bm);
+int dissoziiert_2 = rating(dissoziation_derealisation_bm);
+int dissoziiert_3 = rating(dissoziation_hoeren_bm);
+int dissoziiert_4 = rating(dissoziation_analgesie_bm);
+int spannung = rating(entspannt_bm);
+
+output_file outfile_sub_disso = new output_file;
+outfile_sub_disso.open_append(Study_Code+"_DissoRating.txt"); 
+outfile_sub_disso.print(string(dissoziiert_1)+"\t"+string(dissoziiert_2)+"\t"+string(dissoziiert_3)+"\t"+string(dissoziiert_4)+"\t"+string(spannung)+"\n");

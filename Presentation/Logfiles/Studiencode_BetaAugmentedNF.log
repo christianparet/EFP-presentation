@@ -1,0 +1,668 @@
+Scenario - 
+Logfile written - 06/06/2018 09:05:14
+
+Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+0	Pulse	23	0	0	NA
+1	Picture	prepare	167	0	1	268222	1	0	next	other	0
+1	Pulse	23	20000	19833	NA
+1	Pulse	23	40000	39833	NA
+1	Pulse	23	60000	59833	NA
+1	Pulse	23	80000	79833	NA
+1	Pulse	23	100000	99833	NA
+1	Pulse	23	120000	119833	NA
+1	Pulse	23	140000	139833	NA
+1	Pulse	23	160000	159833	NA
+1	Pulse	23	180000	179833	NA
+1	Pulse	23	200000	199833	NA
+1	Pulse	23	220000	219833	NA
+1	Pulse	23	240000	239833	NA
+1	Pulse	23	260000	259833	NA
+1	Manual	transfer	268220	268054	NA
+2	Manual	transfer	275760	7371	NA
+3	Pulse	23	280000	4105	NA
+3	Manual	transfer	283342	7447	NA
+4	Manual	transfer	291643	8241	NA
+5	Manual	transfer	299223	7482	NA
+6	Pulse	23	300000	585	NA
+6	Manual	transfer	307085	7670	NA
+7	Manual	transfer	314985	7730	NA
+8	Pulse	23	320000	4906	NA
+8	Manual	transfer	322445	7351	NA
+9	Manual	transfer	329714	7113	NA
+10	Manual	transfer	337134	7360	NA
+11	Pulse	23	340000	2720	NA
+11	Manual	transfer	344354	7074	NA
+12	Manual	transfer	351803	7351	NA
+13	Manual	transfer	359254	7295	NA
+14	Pulse	23	360000	702	NA
+14	Manual	transfer	366753	7455	NA
+15	Manual	transfer	373993	7189	NA
+16	Pulse	23	380000	5857	NA
+17	Picture	onset_rest_trial	381149	0	1	7339	1	0	next	other	0
+18	Picture	onset_rest_trial	388489	0	1	7173	1	0	next	other	0
+19	Picture	onset_rest_trial	395661	0	1	7173	1	0	next	other	0
+19	Pulse	23	400000	4339	NA
+20	Picture	onset_rest_trial	402834	0	1	7840	1	0	next	other	0
+21	Picture	onset_rest_trial	410674	0	1	8340	1	0	next	other	0
+21	Manual	transfer	418931	8257	NA
+22	Pulse	23	420000	986	NA
+22	Manual	transfer	426892	7878	NA
+23	Manual	transfer	432897	5877	NA
+24	Pulse	23	440000	6974	NA
+24	Manual	transfer	440087	7061	NA
+25	Manual	transfer	447195	6997	NA
+26	Manual	transfer	454556	7185	NA
+27	Pulse	23	460000	5290	NA
+27	Manual	transfer	462136	7425	NA
+28	Manual	transfer	469555	7338	NA
+29	Manual	transfer	477135	7412	NA
+30	Pulse	23	480000	2771	NA
+30	Manual	transfer	484415	7186	NA
+31	Manual	transfer	491734	7165	NA
+32	Manual	transfer	499493	7586	NA
+33	Pulse	23	500000	419	NA
+33	Manual	transfer	506724	7143	NA
+34	Manual	transfer	514053	7133	NA
+35	Pulse	23	520000	5907	NA
+35	Manual	transfer	521433	7340	NA
+37	Picture	onset_rest_trial	528772	0	1	7339	1	0	next	other	0
+38	Picture	onset_rest_trial	536111	0	1	7506	1	0	next	other	0
+38	Pulse	23	540000	3889	NA
+39	Picture	onset_rest_trial	543617	0	1	7339	1	0	next	other	0
+40	Picture	onset_rest_trial	550957	0	1	7339	1	0	next	other	0
+41	Picture	onset_rest_trial	558296	0	1	7840	1	0	next	other	0
+41	Pulse	23	560000	1704	NA
+41	Manual	transfer	565974	7678	NA
+42	Manual	transfer	573482	7346	NA
+43	Pulse	23	580000	6358	NA
+43	Manual	transfer	580541	6898	NA
+44	Manual	transfer	587590	6942	NA
+45	Manual	transfer	594860	7206	NA
+46	Pulse	23	600000	5007	NA
+46	Manual	transfer	602169	7176	NA
+47	Manual	transfer	609479	7146	NA
+48	Manual	transfer	616827	7155	NA
+49	Pulse	23	620000	2989	NA
+49	Manual	transfer	624408	7397	NA
+50	Manual	transfer	631847	7330	NA
+51	Manual	transfer	639147	7123	NA
+52	Pulse	23	640000	803	NA
+52	Manual	transfer	646527	7330	NA
+53	Manual	transfer	654367	7665	NA
+54	Pulse	23	660000	5457	NA
+54	Manual	transfer	661827	7285	NA
+55	Manual	transfer	669247	7365	NA
+57	Picture	onset_rest_trial	676227	0	1	7173	1	0	next	other	0
+57	Pulse	23	680000	3773	NA
+58	Picture	onset_rest_trial	683400	0	1	7673	1	0	next	other	0
+59	Picture	onset_rest_trial	691073	0	1	7173	1	0	next	other	0
+60	Picture	onset_rest_trial	698246	0	1	7339	1	0	next	other	0
+60	Pulse	23	700000	1754	NA
+61	Picture	onset_rest_trial	705585	0	1	7673	1	0	next	other	0
+61	Manual	transfer	713122	7537	NA
+62	Pulse	23	720000	6742	NA
+62	Manual	transfer	720552	7294	NA
+63	Manual	transfer	727861	7264	NA
+64	Manual	transfer	735361	7424	NA
+65	Pulse	23	740000	4557	NA
+65	Manual	transfer	742540	7096	NA
+66	Manual	transfer	749919	7303	NA
+67	Manual	transfer	757670	7548	NA
+68	Pulse	23	760000	2205	NA
+68	Manual	transfer	764949	7154	NA
+69	Manual	transfer	772240	7106	NA
+70	Manual	transfer	779588	7281	NA
+71	Pulse	23	780000	354	NA
+71	Manual	transfer	786817	7171	NA
+72	Manual	transfer	794056	7071	NA
+73	Pulse	23	800000	5842	NA
+73	Manual	transfer	801186	7027	NA
+74	Manual	transfer	808407	7076	NA
+75	Manual	transfer	815945	7441	NA
+76	Pulse	23	820000	3990	NA
+77	Picture	onset_rest_trial	822849	0	1	7339	1	0	next	other	0
+78	Picture	onset_rest_trial	830188	0	1	7173	1	0	next	other	0
+79	Picture	onset_rest_trial	837361	0	1	7339	1	0	next	other	0
+79	Pulse	23	840000	2639	NA
+80	Picture	onset_rest_trial	844700	0	1	7339	1	0	next	other	0
+81	Picture	onset_rest_trial	852040	0	1	8173	1	0	next	other	0
+81	Pulse	23	860000	7960	NA
+81	Manual	bars7	860008	7968	NA
+82	Manual	bars6	867720	7507	NA
+83	Manual	bars5	875591	7705	NA
+84	Pulse	23	880000	4274	NA
+84	Manual	bars5	883290	7564	NA
+85	Manual	bars5	890710	7311	NA
+86	Manual	bars5	898090	7185	NA
+87	Pulse	23	900000	1755	NA
+87	Manual	bars5	905298	7053	NA
+88	Manual	bars5	912588	7171	NA
+89	Pulse	23	920000	7243	NA
+89	Manual	bars7	920168	7411	NA
+90	Manual	bars6	927528	7265	NA
+91	Manual	bars6	935088	7485	NA
+92	Pulse	23	940000	4724	NA
+92	Manual	bars6	942227	6951	NA
+93	Manual	bars5	949576	7295	NA
+94	Manual	bars5	956885	7265	NA
+95	Pulse	23	960000	3040	NA
+95	Manual	bars4	964226	7266	NA
+97	Picture	onset_rest_trial	971139	0	1	7506	1	0	next	other	0
+98	Picture	onset_rest_trial	978645	0	1	7506	1	0	next	other	0
+98	Pulse	23	980000	1355	NA
+99	Picture	onset_rest_trial	986151	0	1	7339	1	0	next	other	0
+100	Picture	onset_rest_trial	993490	0	1	7506	1	0	next	other	0
+100	Pulse	23	1000000	6510	NA
+101	Picture	onset_rest_trial	1000997	0	1	8173	1	0	next	other	0
+101	Manual	bars5	1008959	7962	NA
+102	Manual	bars5	1016434	7264	NA
+103	Pulse	23	1020000	3490	NA
+103	Manual	bars6	1023985	7475	NA
+104	Manual	bars6	1031375	7193	NA
+105	Manual	bars6	1038815	7293	NA
+106	Pulse	23	1040000	1139	NA
+106	Manual	bars6	1046525	7664	NA
+107	Manual	bars6	1053905	7203	NA
+108	Pulse	23	1060000	5959	NA
+108	Manual	bars6	1061324	7284	NA
+109	Manual	bars6	1068955	7575	NA
+110	Manual	bars5	1076254	7201	NA
+111	Pulse	23	1080000	3607	NA
+111	Manual	bars4	1083533	7141	NA
+112	Manual	bars4	1091244	7512	NA
+113	Manual	bars4	1098634	7229	NA
+114	Pulse	23	1100000	1256	NA
+114	Manual	bars5	1106096	7352	NA
+115	Manual	bars5	1113664	7413	NA
+116	Pulse	23	1120000	6243	NA
+117	Picture	onset_rest_trial	1120930	0	1	7173	1	0	next	other	0
+118	Picture	onset_rest_trial	1128102	0	1	7339	1	0	next	other	0
+119	Picture	onset_rest_trial	1135442	0	1	7339	1	0	next	other	0
+119	Pulse	23	1140000	4558	NA
+120	Picture	onset_rest_trial	1142781	0	1	7673	1	0	next	other	0
+121	Picture	onset_rest_trial	1150454	0	1	7840	1	0	next	other	0
+121	Manual	bars5	1158220	7766	NA
+122	Pulse	23	1160000	1706	NA
+122	Manual	bars6	1165611	7317	NA
+123	Manual	bars6	1173000	7200	NA
+124	Pulse	23	1180000	6861	NA
+124	Manual	bars5	1180400	7260	NA
+125	Manual	bars5	1187669	7190	NA
+126	Manual	bars7	1195280	7462	NA
+127	Pulse	23	1200000	4675	NA
+127	Manual	bars7	1202628	7303	NA
+128	Manual	bars7	1209938	7274	NA
+129	Manual	bars7	1217428	7424	NA
+130	Pulse	23	1220000	2490	NA
+130	Manual	bars6	1224877	7367	NA
+131	Manual	bars7	1232127	7111	NA
+132	Manual	bars7	1239566	7378	NA
+133	Pulse	23	1240000	305	NA
+133	Manual	bars8	1246716	7022	NA
+134	Manual	bars8	1254045	7177	NA
+135	Pulse	23	1260000	5793	NA
+135	Manual	bars6	1261385	7178	NA
+137	Picture	onset_rest_trial	1268886	0	1	7339	1	0	next	other	0
+138	Picture	onset_rest_trial	1276225	0	1	7339	1	0	next	other	0
+138	Pulse	23	1280000	3775	NA
+139	Picture	onset_rest_trial	1283564	0	1	7840	1	0	next	other	0
+140	Picture	onset_rest_trial	1291404	0	1	7339	1	0	next	other	0
+141	Picture	onset_rest_trial	1298744	0	1	8173	1	0	next	other	0
+141	Pulse	23	1300000	1256	NA
+141	Manual	bars5	1306806	8062	NA
+142	Manual	bars6	1314156	7239	NA
+143	Pulse	23	1320000	5743	NA
+143	Manual	bars6	1321809	7552	NA
+144	Manual	bars4	1329990	8060	NA
+145	Manual	bars4	1337439	7336	NA
+146	Pulse	23	1340000	2391	NA
+146	Manual	bars4	1344748	7139	NA
+147	Manual	bars5	1352168	7386	NA
+148	Manual	bars5	1359567	7279	NA
+149	Pulse	23	1360000	373	NA
+149	Manual	bars5	1367148	7520	NA
+150	Manual	bars6	1374607	7307	NA
+151	Pulse	23	1380000	5193	NA
+151	Manual	bars6	1382139	7332	NA
+152	Manual	bars6	1389621	7308	NA
+153	Manual	bars5	1397143	7324	NA
+154	Pulse	23	1400000	2675	NA
+154	Manual	bars7	1404812	7486	NA
+155	Manual	bars7	1412160	7162	NA
+157	Picture	onset_rest_trial	1419344	0	1	7506	1	0	next	other	0
+157	Pulse	23	1420000	656	NA
+158	Picture	onset_rest_trial	1426850	0	1	7339	1	0	next	other	0
+159	Picture	onset_rest_trial	1434189	0	1	7339	1	0	next	other	0
+159	Pulse	23	1440000	5811	NA
+160	Picture	onset_rest_trial	1441529	0	1	7506	1	0	next	other	0
+161	Picture	onset_rest_trial	1449035	0	1	8007	1	0	next	other	0
+162	Picture	betaFB_inst	1457042	0	1	74228	1	0	next	other	0
+162	Pulse	23	1460000	2958	NA
+162	Pulse	23	1480000	22958	NA
+162	Pulse	23	1500000	42958	NA
+162	Pulse	23	1520000	62958	NA
+163	Picture	betaFB	1531270	0	1	105087	1	0	next	other	0
+163	Pulse	23	1540000	8730	NA
+163	Pulse	23	1560000	28730	NA
+163	Pulse	23	1580000	48730	NA
+163	Pulse	23	1600000	68730	NA
+163	Pulse	23	1620000	88730	NA
+164	Picture	onset_rest_trial	1636357	0	1	7673	1	0	next	other	0
+164	Pulse	23	1640000	3643	NA
+165	Picture	onset_rest_trial	1644030	0	1	7673	1	0	next	other	0
+166	Picture	onset_rest_trial	1651703	0	1	7339	1	0	next	other	0
+167	Picture	onset_rest_trial	1659043	0	1	7506	1	0	next	other	0
+167	Pulse	23	1660000	957	NA
+168	Picture	onset_rest_trial	1666549	0	1	8007	1	0	next	other	0
+168	Manual	bars5	1674416	7867	NA
+169	Pulse	23	1680000	5445	NA
+169	Manual	bars4	1681968	7412	NA
+170	Manual	bars4	1689639	7577	NA
+171	Manual	bars4	1697448	7713	NA
+172	Pulse	23	1700000	2426	NA
+172	Manual	bars5	1704790	7215	NA
+173	Manual	bars5	1712175	7261	NA
+174	Manual	bars5	1719940	7687	NA
+174	Pulse	23	1720000	7747	NA
+175	Manual	bars6	1727319	7226	NA
+176	Manual	bars5	1734698	7265	NA
+177	Pulse	23	1740000	5228	NA
+177	Manual	bars6	1742118	7346	NA
+178	Manual	bars5	1749648	7370	NA
+179	Manual	bars5	1757509	7725	NA
+180	Pulse	23	1760000	2376	NA
+180	Manual	bars3	1764818	7194	NA
+181	Manual	bars4	1772148	7184	NA
+182	Manual	bars5	1779438	7135	NA
+183	Pulse	23	1780000	524	NA
+184	Picture	onset_rest_trial	1786482	0	1	7673	1	0	next	other	0
+185	Picture	onset_rest_trial	1794155	0	1	7173	1	0	next	other	0
+185	Pulse	23	1800000	5845	NA
+186	Picture	onset_rest_trial	1801327	0	1	7339	1	0	next	other	0
+187	Picture	onset_rest_trial	1808667	0	1	7840	1	0	next	other	0
+188	Picture	onset_rest_trial	1816506	0	1	7506	1	0	next	other	0
+188	Pulse	23	1820000	3494	NA
+188	Manual	bars4	1823966	7459	NA
+189	Manual	bars4	1832006	7993	NA
+190	Manual	bars3	1839517	7331	NA
+191	Pulse	23	1840000	308	NA
+191	Manual	bars4	1847189	7496	NA
+192	Manual	bars4	1854667	7301	NA
+193	Pulse	23	1860000	5295	NA
+193	Manual	bars5	1862159	7454	NA
+194	Manual	bars5	1869627	7416	NA
+195	Manual	bars5	1877046	7329	NA
+196	Pulse	23	1880000	2777	NA
+196	Manual	bars6	1884496	7273	NA
+197	Manual	bars6	1891966	7403	NA
+198	Manual	bars6	1899145	7076	NA
+199	Pulse	23	1900000	758	NA
+199	Manual	bars5	1906475	7233	NA
+200	Manual	bars4	1914215	7634	NA
+201	Pulse	23	1920000	5746	NA
+201	Manual	bars4	1921864	7610	NA
+202	Manual	bars5	1929234	7307	NA
+204	Picture	onset_rest_trial	1936773	0	1	7506	1	0	next	other	0
+204	Pulse	23	1940000	3227	NA
+205	Picture	onset_rest_trial	1944279	0	1	7840	1	0	next	other	0
+206	Picture	onset_rest_trial	1952119	0	1	7506	1	0	next	other	0
+207	Picture	onset_rest_trial	1959625	0	1	7506	1	0	next	other	0
+207	Pulse	23	1960000	375	NA
+208	Picture	onset_rest_trial	1967131	0	1	7840	1	0	next	other	0
+208	Manual	bars5	1974815	7683	NA
+209	Pulse	23	1980000	5029	NA
+209	Manual	bars5	1982476	7505	NA
+210	Manual	bars4	1990066	7422	NA
+211	Manual	bars4	1998058	7908	NA
+212	Pulse	23	2000000	1843	NA
+212	Manual	bars4	2005528	7371	NA
+213	Manual	bars3	2012878	7214	NA
+214	Pulse	23	2020000	6997	NA
+214	Manual	bars3	2020406	7403	NA
+215	Manual	bars4	2027906	7397	NA
+216	Manual	bars4	2035156	7141	NA
+217	Pulse	23	2040000	4645	NA
+217	Manual	bars4	2042827	7472	NA
+218	Manual	bars4	2050167	7306	NA
+219	Manual	bars4	2057987	7620	NA
+220	Pulse	23	2060000	1960	NA
+220	Manual	bars4	2065567	7527	NA
+221	Manual	bars4	2072968	7254	NA
+222	Pulse	23	2080000	6947	NA
+222	Manual	bars5	2080677	7625	NA
+224	Picture	onset_rest_trial	2087731	0	1	7506	1	0	next	other	0
+225	Picture	onset_rest_trial	2095238	0	1	7506	1	0	next	other	0
+225	Pulse	23	2100000	4762	NA
+226	Picture	onset_rest_trial	2102744	0	1	7339	1	0	next	other	0
+227	Picture	onset_rest_trial	2110083	0	1	7673	1	0	next	other	0
+228	Picture	onset_rest_trial	2117756	0	1	8007	1	0	next	other	0
+228	Pulse	23	2120000	2244	NA
+228	Manual	bars6	2125703	7947	NA
+229	Manual	bars5	2133059	7296	NA
+230	Pulse	23	2140000	6898	NA
+230	Manual	bars5	2140437	7334	NA
+231	Manual	bars4	2147866	7258	NA
+232	Manual	bars3	2155818	7870	NA
+233	Pulse	23	2160000	4045	NA
+233	Manual	bars4	2163318	7363	NA
+234	Manual	bars5	2170858	7397	NA
+235	Manual	bars5	2178370	7403	NA
+236	Pulse	23	2180000	1527	NA
+236	Manual	bars5	2185948	7474	NA
+237	Manual	bars5	2193157	7011	NA
+238	Pulse	23	2200000	6681	NA
+238	Manual	bars5	2200476	7157	NA
+239	Manual	bars4	2208026	7368	NA
+240	Manual	bars4	2215366	7202	NA
+241	Pulse	23	2220000	4496	NA
+241	Manual	bars3	2222806	7302	NA
+242	Manual	bars4	2230025	7182	NA
+244	Picture	onset_rest_trial	2237022	0	1	7173	1	0	next	other	0
+244	Pulse	23	2240000	2978	NA
+245	Picture	onset_rest_trial	2244195	0	1	7173	1	0	next	other	0
+246	Picture	onset_rest_trial	2251367	0	1	7506	1	0	next	other	0
+247	Picture	onset_rest_trial	2258873	0	1	7173	1	0	next	other	0
+247	Pulse	23	2260000	1127	NA
+248	Picture	onset_rest_trial	2266046	0	1	7339	1	0	next	other	0
+249	Picture	betaFB_inst	2273385	0	1	71559	1	0	next	other	0
+249	Pulse	23	2280000	6615	NA
+249	Pulse	23	2300000	26615	NA
+249	Pulse	23	2320000	46615	NA
+249	Pulse	23	2340000	66615	NA
+250	Picture	betaFB	2344945	0	1	109090	1	0	next	other	0
+250	Pulse	23	2360000	15055	NA
+250	Pulse	23	2380000	35055	NA
+250	Pulse	23	2400000	55055	NA
+250	Pulse	23	2420000	75055	NA
+250	Pulse	23	2440000	95055	NA
+251	Picture	onset_rest_trial	2454035	0	1	7339	1	0	next	other	0
+251	Pulse	23	2460000	5965	NA
+252	Picture	onset_rest_trial	2461375	0	1	7173	1	0	next	other	0
+253	Picture	onset_rest_trial	2468547	0	1	7339	1	0	next	other	0
+254	Picture	onset_rest_trial	2475887	0	1	7339	1	0	next	other	0
+254	Pulse	23	2480000	4113	NA
+255	Picture	onset_rest_trial	2483226	0	1	7840	1	0	next	other	0
+255	Manual	bars3	2490957	7731	NA
+256	Manual	bars3	2498248	7183	NA
+257	Pulse	23	2500000	1595	NA
+257	Manual	bars4	2505476	7070	NA
+258	Manual	bars4	2513088	7510	NA
+259	Pulse	23	2520000	6749	NA
+259	Manual	bars4	2520557	7306	NA
+260	Manual	bars3	2527896	7139	NA
+261	Manual	bars4	2535507	7410	NA
+262	Pulse	23	2540000	4397	NA
+262	Manual	bars5	2542863	7260	NA
+263	Manual	bars5	2550245	7303	NA
+264	Manual	bars5	2558057	7775	NA
+265	Pulse	23	2560000	1878	NA
+265	Manual	bars5	2565633	7512	NA
+266	Manual	bars5	2573769	7974	NA
+267	Pulse	23	2580000	6032	NA
+267	Manual	bars5	2581687	7719	NA
+268	Manual	bars4	2588768	6960	NA
+269	Manual	bars4	2595716	6903	NA
+270	Pulse	23	2600000	4181	NA
+271	Picture	onset_rest_trial	2602492	0	1	7506	1	0	next	other	0
+272	Picture	onset_rest_trial	2609998	0	1	7673	1	0	next	other	0
+273	Picture	onset_rest_trial	2617671	0	1	7506	1	0	next	other	0
+273	Pulse	23	2620000	2329	NA
+274	Picture	onset_rest_trial	2625177	0	1	7339	1	0	next	other	0
+275	Picture	onset_rest_trial	2632517	0	1	9341	1	0	next	other	0
+275	Pulse	23	2640000	7483	NA
+275	Manual	bars5	2641689	9172	NA
+276	Manual	bars5	2647695	5837	NA
+277	Manual	bars6	2656689	8827	NA
+278	Pulse	23	2660000	3130	NA
+278	Manual	bars7	2662596	5725	NA
+279	Manual	bars8	2669986	7277	NA
+280	Manual	bars5	2677575	7527	NA
+281	Pulse	23	2680000	2279	NA
+281	Manual	bars4	2684805	7084	NA
+282	Manual	bars5	2692437	7543	NA
+283	Manual	bars5	2699804	7238	NA
+284	Pulse	23	2700000	94	NA
+284	Manual	bars3	2707023	7118	NA
+285	Manual	bars3	2714533	7455	NA
+286	Pulse	23	2720000	5415	NA
+286	Manual	bars3	2722334	7749	NA
+287	Manual	bars3	2729604	7179	NA
+288	Manual	bars3	2737074	7310	NA
+289	Pulse	23	2740000	2730	NA
+289	Manual	bars3	2744493	7222	NA
+291	Picture	onset_rest_trial	2751449	0	1	7339	1	0	next	other	0
+292	Picture	onset_rest_trial	2758788	0	1	7339	1	0	next	other	0
+292	Pulse	23	2760000	1212	NA
+293	Picture	onset_rest_trial	2766127	0	1	7339	1	0	next	other	0
+294	Picture	onset_rest_trial	2773467	0	1	7673	1	0	next	other	0
+294	Pulse	23	2780000	6533	NA
+295	Picture	onset_rest_trial	2781140	0	1	7673	1	0	next	other	0
+295	Manual	bars3	2788641	7501	NA
+296	Manual	bars4	2795850	7037	NA
+297	Pulse	23	2800000	4014	NA
+297	Manual	bars4	2803009	7023	NA
+298	Manual	bars3	2810249	7090	NA
+299	Manual	bars3	2817508	7177	NA
+300	Pulse	23	2820000	2330	NA
+300	Manual	bars3	2824959	7289	NA
+301	Manual	bars3	2832217	7208	NA
+302	Manual	bars4	2839707	7358	NA
+303	Pulse	23	2840000	145	NA
+303	Manual	bars5	2847558	7702	NA
+304	Manual	bars6	2854997	7302	NA
+305	Pulse	23	2860000	4965	NA
+305	Manual	bars5	2862136	7102	NA
+306	Manual	bars4	2869747	7540	NA
+307	Manual	bars6	2877468	7588	NA
+308	Pulse	23	2880000	2447	NA
+308	Manual	bars6	2884798	7244	NA
+309	Manual	bars6	2892096	7204	NA
+311	Picture	onset_rest_trial	2899071	0	1	7339	1	0	next	other	0
+311	Pulse	23	2900000	929	NA
+312	Picture	onset_rest_trial	2906410	0	1	7506	1	0	next	other	0
+313	Picture	onset_rest_trial	2913917	0	1	7339	1	0	next	other	0
+313	Pulse	23	2920000	6083	NA
+314	Picture	onset_rest_trial	2921256	0	1	7173	1	0	next	other	0
+315	Picture	onset_rest_trial	2928429	0	1	8173	1	0	next	other	0
+315	Manual	bars6	2936433	8004	NA
+316	Pulse	23	2940000	3398	NA
+316	Manual	bars7	2943823	7220	NA
+317	Manual	bars7	2951474	7533	NA
+318	Manual	bars7	2958774	7160	NA
+319	Pulse	23	2960000	1046	NA
+319	Manual	bars6	2966262	7308	NA
+320	Manual	bars7	2973440	6980	NA
+321	Pulse	23	2980000	6367	NA
+321	Manual	bars7	2981134	7501	NA
+322	Manual	bars4	2988451	7145	NA
+323	Manual	bars4	2995891	7246	NA
+324	Pulse	23	3000000	4015	NA
+324	Manual	bars5	3003060	7075	NA
+325	Manual	bars5	3010340	7183	NA
+326	Manual	bars4	3017820	7323	NA
+327	Pulse	23	3020000	1997	NA
+327	Manual	bars4	3024999	6996	NA
+328	Manual	bars5	3032238	7062	NA
+329	Manual	bars5	3039598	7249	NA
+330	Pulse	23	3040000	312	NA
+331	Picture	onset_rest_trial	3046693	0	1	7173	1	0	next	other	0
+332	Picture	onset_rest_trial	3053866	0	1	7173	1	0	next	other	0
+332	Pulse	23	3060000	6134	NA
+333	Picture	onset_rest_trial	3061039	0	1	7339	1	0	next	other	0
+334	Picture	onset_rest_trial	3068378	0	1	7339	1	0	next	other	0
+335	Picture	onset_rest_trial	3075718	0	1	7173	1	0	next	other	0
+335	Pulse	23	3080000	4282	NA
+336	Picture	betaFB_inst	3082890	0	1	72227	1	0	next	other	0
+336	Pulse	23	3100000	17110	NA
+336	Pulse	23	3120000	37110	NA
+336	Pulse	23	3140000	57110	NA
+337	Picture	betaFB	3155117	0	1	107923	1	0	next	other	0
+337	Pulse	23	3160000	4883	NA
+337	Pulse	23	3180000	24883	NA
+337	Pulse	23	3200000	44883	NA
+337	Pulse	23	3220000	64883	NA
+337	Pulse	23	3240000	84883	NA
+337	Pulse	23	3260000	104883	NA
+338	Picture	onset_rest_trial	3263040	0	1	7673	1	0	next	other	0
+339	Picture	onset_rest_trial	3270713	0	1	7339	1	0	next	other	0
+340	Picture	onset_rest_trial	3278052	0	1	7339	1	0	next	other	0
+340	Pulse	23	3280000	1948	NA
+341	Picture	onset_rest_trial	3285391	0	1	7339	1	0	next	other	0
+342	Picture	onset_rest_trial	3292731	0	1	7506	1	0	next	other	0
+342	Pulse	23	3300000	7269	NA
+342	Manual	bars6	3300179	7448	NA
+343	Manual	bars6	3307331	7093	NA
+344	Manual	bars5	3314558	7148	NA
+345	Pulse	23	3320000	5251	NA
+345	Manual	bars6	3321717	6968	NA
+346	Manual	bars5	3329057	7302	NA
+347	Manual	bars5	3336396	7302	NA
+348	Pulse	23	3340000	3566	NA
+348	Manual	bars5	3343696	7262	NA
+349	Manual	bars5	3351055	7282	NA
+350	Manual	bars6	3358305	7192	NA
+351	Pulse	23	3360000	1548	NA
+351	Manual	bars5	3365416	6964	NA
+352	Manual	bars6	3372763	7305	NA
+353	Pulse	23	3380000	7203	NA
+353	Manual	bars6	3380334	7536	NA
+354	Manual	bars5	3387713	7242	NA
+355	Manual	bars5	3394993	7183	NA
+356	Pulse	23	3400000	4851	NA
+356	Manual	bars6	3402242	7092	NA
+358	Picture	onset_rest_trial	3409661	0	1	7506	1	0	next	other	0
+359	Picture	onset_rest_trial	3417167	0	1	7173	1	0	next	other	0
+359	Pulse	23	3420000	2833	NA
+360	Picture	onset_rest_trial	3424340	0	1	7673	1	0	next	other	0
+361	Picture	onset_rest_trial	3432013	0	1	7506	1	0	next	other	0
+362	Picture	onset_rest_trial	3439519	0	1	7840	1	0	next	other	0
+362	Pulse	23	3440000	481	NA
+362	Manual	bars6	3447191	7672	NA
+363	Manual	bars5	3454611	7252	NA
+364	Pulse	23	3460000	5301	NA
+364	Manual	bars6	3462023	7325	NA
+365	Manual	bars6	3469463	7258	NA
+366	Manual	bars6	3476524	6980	NA
+367	Pulse	23	3480000	3283	NA
+367	Manual	bars6	3483821	7104	NA
+368	Manual	bars5	3491401	7511	NA
+369	Manual	bars5	3498852	7290	NA
+370	Pulse	23	3500000	1098	NA
+370	Manual	bars5	3506290	7388	NA
+371	Manual	bars5	3513539	7131	NA
+372	Pulse	23	3520000	6419	NA
+372	Manual	bars6	3521172	7592	NA
+373	Manual	bars7	3528379	7126	NA
+374	Manual	bars7	3535709	7282	NA
+375	Pulse	23	3540000	4234	NA
+375	Manual	bars7	3542968	7202	NA
+376	Manual	bars7	3550719	7614	NA
+378	Picture	onset_rest_trial	3557784	0	1	7339	1	0	next	other	0
+378	Pulse	23	3560000	2216	NA
+379	Picture	onset_rest_trial	3565124	0	1	7506	1	0	next	other	0
+380	Picture	onset_rest_trial	3572630	0	1	7173	1	0	next	other	0
+381	Picture	onset_rest_trial	3579802	0	1	7339	1	0	next	other	0
+381	Pulse	23	3580000	198	NA
+382	Picture	onset_rest_trial	3587142	0	1	7506	1	0	next	other	0
+382	Manual	bars7	3594475	7333	NA
+383	Pulse	23	3600000	5352	NA
+383	Manual	bars8	3601832	7184	NA
+384	Manual	bars7	3609082	7094	NA
+385	Manual	bars7	3616481	7321	NA
+386	Pulse	23	3620000	3334	NA
+386	Manual	bars6	3623991	7325	NA
+387	Manual	bars6	3631512	7340	NA
+388	Manual	bars6	3638841	7163	NA
+389	Pulse	23	3640000	982	NA
+389	Manual	bars7	3646351	7333	NA
+390	Manual	bars6	3653792	7267	NA
+391	Pulse	23	3660000	6136	NA
+391	Manual	bars6	3661121	7257	NA
+392	Manual	bars5	3668606	7403	NA
+393	Manual	bars5	3676181	7472	NA
+394	Pulse	23	3680000	3784	NA
+394	Manual	bars7	3683340	7124	NA
+395	Manual	bars7	3690769	7381	NA
+396	Manual	bars8	3698058	7164	NA
+397	Pulse	23	3700000	1766	NA
+398	Picture	onset_rest_trial	3705073	0	1	7339	1	0	next	other	0
+399	Picture	onset_rest_trial	3712412	0	1	7173	1	0	next	other	0
+400	Picture	onset_rest_trial	3719585	0	1	7673	1	0	next	other	0
+400	Pulse	23	3720000	415	NA
+401	Picture	onset_rest_trial	3727258	0	1	7673	1	0	next	other	0
+402	Picture	onset_rest_trial	3734931	0	1	7506	1	0	next	other	0
+402	Pulse	23	3740000	5069	NA
+402	Manual	bars7	3742397	7466	NA
+403	Manual	bars6	3749847	7409	NA
+404	Manual	bars6	3757057	7114	NA
+405	Pulse	23	3760000	2884	NA
+405	Manual	bars6	3764476	7360	NA
+406	Manual	bars6	3771646	7024	NA
+407	Manual	bars7	3778896	7101	NA
+408	Pulse	23	3780000	1032	NA
+408	Manual	bars7	3786185	7218	NA
+409	Manual	bars7	3793745	7438	NA
+410	Pulse	23	3800000	6187	NA
+410	Manual	bars6	3801188	7374	NA
+411	Manual	bars6	3808385	7066	NA
+412	Manual	bars5	3815743	7251	NA
+413	Pulse	23	3820000	4169	NA
+413	Manual	bars6	3823063	7232	NA
+414	Manual	bars5	3830362	7191	NA
+415	Manual	bars4	3837722	7212	NA
+416	Pulse	23	3840000	2150	NA
+416	Manual	bars5	3845271	7421	NA
+418	Picture	onset_rest_trial	3852362	0	1	7173	1	0	next	other	0
+419	Picture	onset_rest_trial	3859534	0	1	7506	1	0	next	other	0
+419	Pulse	23	3860000	466	NA
+420	Picture	onset_rest_trial	3867041	0	1	7339	1	0	next	other	0
+421	Picture	onset_rest_trial	3874380	0	1	7339	1	0	next	other	0
+421	Pulse	23	3880000	5620	NA
+422	Picture	onset_rest_trial	3881719	0	1	7339	1	0	next	other	0
+423	Picture	betaFB_inst	3889059	0	1	72727	1	0	next	other	0
+423	Pulse	23	3900000	10941	NA
+423	Pulse	23	3920000	30941	NA
+423	Pulse	23	3940000	50941	NA
+423	Pulse	23	3960000	70941	NA
+424	Picture	betaFB	3961786	0	1	803079	1	0	next	other	0
+424	Pulse	23	3980000	18214	NA
+424	Pulse	23	4000000	38214	NA
+424	Pulse	23	4020000	58214	NA
+424	Pulse	23	4040000	78214	NA
+424	Pulse	23	4060000	98214	NA
+424	Pulse	23	4080000	118214	NA
+424	Pulse	23	4100000	138214	NA
+424	Pulse	23	4120000	158214	NA
+424	Pulse	23	4140000	178214	NA
+424	Pulse	23	4160000	198214	NA
+424	Pulse	23	4180000	218214	NA
+424	Pulse	23	4200000	238214	NA
+424	Pulse	23	4220000	258214	NA
+424	Pulse	23	4240000	278214	NA
+424	Pulse	23	4260000	298214	NA
+424	Pulse	23	4280000	318214	NA
+424	Pulse	23	4300000	338214	NA
+424	Pulse	23	4320000	358214	NA
+424	Pulse	23	4340000	378214	NA
+424	Pulse	23	4360000	398214	NA
+424	Pulse	23	4380000	418214	NA
+424	Pulse	23	4400000	438214	NA
+424	Pulse	23	4420000	458214	NA
+424	Pulse	23	4440000	478214	NA
+424	Pulse	23	4460000	498214	NA
+424	Pulse	23	4480000	518214	NA
+424	Pulse	23	4500000	538214	NA
+424	Pulse	23	4520000	558214	NA
+424	Pulse	23	4540000	578214	NA
+424	Pulse	23	4560000	598214	NA
+424	Pulse	23	4580000	618214	NA
+424	Pulse	23	4600000	638214	NA
+424	Pulse	23	4620000	658214	NA
+424	Pulse	23	4640000	678214	NA
+424	Pulse	23	4660000	698214	NA
+424	Pulse	23	4680000	718214	NA
+424	Pulse	23	4700000	738214	NA
+424	Pulse	23	4720000	758214	NA
+424	Pulse	23	4740000	778214	NA
+424	Quit		4753005	791219	NA
